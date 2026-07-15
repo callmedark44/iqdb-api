@@ -1,4 +1,3 @@
-import { OptionsOfTextResponseBody } from 'got'
 import { Readable } from 'stream'
 
 export type Website = 'www' | '3d'
@@ -45,7 +44,9 @@ export interface SearchOptions {
   filename?: string
   ignoreColors?: boolean
   pickOtherResults?: boolean
-  requestOptions?: OptionsOfTextResponseBody
+  proxy?: string
+  maxQueueRetries?: number
+  onQueuePosition?: (position: number) => void
 }
 
 export interface SearchResult {

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Multi-service image search - Search results</title>
+<style type="text/css"><!--
+.list table { width: 100%; margin: 3px; padding: 3px; border: 1px solid black; }
+.pages div { display: inline-block; vertical-align: top; }
+.pages table { width: 162px; border: 1px solid black; text-align: center; margin: 0.5ex 0ex 0.5ex 0ex; table-layout: fixed; }
+.pages .nomatch table { width: 312px; max-width: none; }
+.pages td { max-width: 154px; word-wrap: break-word; overflow: hidden; }
+td.image { width: 154px; height: 154px; text-align: center; margin-left: auto; margin-right: auto; vertical-align: middle; overflow: visible; }
+.flow { max-width: 30em; }
+.err { color: red; font-weight: bold; }
+.em { font-weight: bold; }
+.el { white-space: nowrap; }
+--></style>
+<link href='/default.css' media='screen' rel='Stylesheet' type='text/css'>
+<style type="text/css"><!--
+table.form th { text-align: left; }
+img.service-icon { vertical-align: top; margin: -1px 5px 0px 0px; width: 16px; }
+--></style>
+<script type="text/javascript"><!--
+function showmore(on) {
+	document.getElementById('show1').style.display=on?'none':'';
+	document.getElementById('more1').style.display=on?'':'none';
+	return false;
+}
+function progress(txt,txt2) {
+	try { document.getElementById('urlstat').firstChild.nodeValue=txt+txt2; } catch (e) { document.write(txt+" "); }
+}
+function url_size(txt) {
+	try { document.getElementById('urlsize').firstChild.nodeValue=txt; } catch (e) { }
+}
+function queue(num,wait) {
+	if (wait>0) num="(waiting for your other "+(wait>1?wait+" queries":"query")+" to complete)";
+	try { document.getElementById('queue').firstChild.nodeValue="iqdb is currently under high load, your query has been queued. Place in queue: "+num; } catch (e) { }
+}
+--></script>
+</head><body>
+<h1>Multi-service image search</h1>
+<div class='notice'>Retrieving https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Trollface_non-free.png/220px-Trollface_non-free.png 
+
+  (<span id='urlsize'>0 ?</span> KB)... <span id='urlstat'> OK, 0.1 seconds.</span></div>
+
+
+<!-- Failed... -1 application/octet-stream  -->
+<div class='flow'><div class='err'>220px-Trollface_non-free.png: Not an image or image format not supported (server says it is application/octet-stream).<br>Make sure the source URL points directly to the image, not to the page containing the image, and that the server does not block hotlinking.</div></div><br><form action="/" method="post" enctype="multipart/form-data">
+<p class="flow">Upload an image or thumbnail from a file or URL to find it (or similar images)
+among:</p>
+<input type="hidden" name="MAX_FILE_SIZE"  value="8388608">
+<table class="form" style="font-size: 100%;">
+<tr><th><label><input type="checkbox" name="service[]" value="1" checked> <a href="//danbooru.donmai.us">Danbooru</a> (anime artwork)</label></th><td> (<a href="//danbooru.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="2" checked> <a href="//konachan.com">Konachan</a> (anime wallpapers)</label></th><td> (<a href="//konachan.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="3" checked> <a href="//yande.re">yande.re</a> (high-res scans)</label></th><td> (<a href="//yandere.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="4" checked> <a href="//gelbooru.com/">Gelbooru</a> (anime artwork)</label></th><td> (<a href="//gelbooru.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="5" checked> <a href="https://chan.sankakucomplex.com/">Sankaku Channel</a> (anime/manga/game images)</label></th><td> (<a href="//sankaku.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="6" checked> <a href="http://e-shuushuu.net/">e-shuushuu</a> (anime/manga/game images)</label></th><td> (<a href="//e-shuushuu.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="11" checked> <a href="http://zerochan.net/">Zerochan</a> (anime images & wallpapers)</label></th><td> (<a href="//zerochan.iqdb.org/">simple search</a>)</td></tr>
+<tr><th><label><input type="checkbox" name="service[]" value="13" checked> <a href="//anime-pictures.net">Anime-Pictures</a> (anime pictures and wallpapers)</label></th><td> (<a href="//anime-pictures.iqdb.org/">simple search</a>)</td></tr>
+</table>
+<br>
+<table class="form" style="font-size: 100%;">
+<tr><th><label for="file">File</label></th><td>
+<input type="file" name="file" id="file" size="50">
+</td></tr><tr><td>or</td></tr><tr><th><label for="url">Source URL</label></th><td>
+<input type="text" name="url" id="url" size="50" placeholder="http://"><tr><td>
+<input type="submit" value="submit" accesskey="s">
+</td><td>
+<label>[ <input type="checkbox" name="forcegray"> ignore colors ]</label>
+</td></tr></table>
+<ul><li>Supported file types are JPEG, PNG and GIF</li>
+<li>Maximum file size: 8192 KB</li>
+<li>Maximum image dimensions: 7500x7500</li>
+</ul>
+</form>
+<p class="flow">See also the <a href="//3d.iqdb.org">3D site search</a> search.</p>
+<div class="flow">Contact: piespy in <a href='irc://irc.rizon.net/iqdb'>#iqdb@irc.rizon.net</a>
+or mail me on Danbooru.</div>
+<p class="flow">Last update: <a href='/?status=1'>3 minutes</a> ago</p>
+<a id="alt"></a></body></html>
+
